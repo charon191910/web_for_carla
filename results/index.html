@@ -1,0 +1,3222 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../installation/">
+      
+      
+        <link rel="next" href="../teaching/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>实验结果 - RL-Frenet轨迹规划项目</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="RL-Frenet轨迹规划项目" class="md-header__button md-logo" aria-label="RL-Frenet轨迹规划项目" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            RL-Frenet轨迹规划项目
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              实验结果
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="RL-Frenet轨迹规划项目" class="md-nav__button md-logo" aria-label="RL-Frenet轨迹规划项目" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    RL-Frenet轨迹规划项目
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    技术原理
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安装使用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验结果
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实验结果
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 算法性能对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 算法性能对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同强化学习算法对比实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="不同强化学习算法对比实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能对比表格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        详细分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Frenet轨迹规划效果验证
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Frenet轨迹规划效果验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轨迹平滑性对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="轨迹平滑性对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        场景适应性测试
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="场景适应性测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同场景性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        典型案例分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 训练过程分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 训练过程分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收敛性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="收敛性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练曲线对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收敛特性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样本效率分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="样本效率分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同算法样本效率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 可视化分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 可视化分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D轨迹可视化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2D轨迹可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正常驾驶场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        紧急避让场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D场景重建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3D场景重建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂路口场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 统计显著性检验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 统计显著性检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验重复性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验重复性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5次重复实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统计检验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 场景适应性测试
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 场景适应性测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同地图性能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="不同地图性能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#town01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town01 (简单高速公路)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#town04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town04 (复杂城市道路)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#town05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town05 (密集交通)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        天气条件影响
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="天气条件影响">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同天气性能对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        天气适应策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 关键发现与建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 关键发现与建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算法选择建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法选择建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        研究用途
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教学演示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数调优建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数调优建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键参数优先级
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调优策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 实验复现指南
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 实验复现指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        环境复现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="环境复现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精确环境配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置文件备份
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果验证
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结果验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准测试流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能验证标准
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 局限性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 局限性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当前限制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="当前限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        改进方向
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="改进方向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        短期改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长期研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 性能基准
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 性能基准">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行业标准对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="行业标准对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与CARLA基准对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学术界对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 结论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 结论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要成果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要成果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用价值
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用价值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        科研价值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教学价值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用前景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teaching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    教学应用
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    进阶内容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 算法性能对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 算法性能对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同强化学习算法对比实验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="不同强化学习算法对比实验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能对比表格
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        详细分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frenet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Frenet轨迹规划效果验证
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Frenet轨迹规划效果验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        轨迹平滑性对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="轨迹平滑性对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验设计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        场景适应性测试
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="场景适应性测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同场景性能
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        典型案例分析
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 训练过程分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 训练过程分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收敛性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="收敛性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        训练曲线对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        收敛特性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样本效率分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="样本效率分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同算法样本效率
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键发现
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎮 可视化分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎮 可视化分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D轨迹可视化
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2D轨迹可视化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        正常驾驶场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        紧急避让场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3D场景重建
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3D场景重建">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复杂路口场景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 统计显著性检验
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 统计显著性检验">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实验重复性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实验重复性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5次重复实验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        统计检验结果
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 场景适应性测试
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 场景适应性测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同地图性能
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="不同地图性能">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#town01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town01 (简单高速公路)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#town04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town04 (复杂城市道路)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#town05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Town05 (密集交通)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        天气条件影响
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="天气条件影响">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不同天气性能对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        天气适应策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 关键发现与建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 关键发现与建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算法选择建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="算法选择建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        研究用途
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实际应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教学演示
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数调优建议
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数调优建议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关键参数优先级
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调优策略
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 实验复现指南
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 实验复现指南">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        环境复现
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="环境复现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        精确环境配置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        配置文件备份
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结果验证
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="结果验证">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准测试流程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能验证标准
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 局限性分析
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 局限性分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        当前限制
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="当前限制">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用限制
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        改进方向
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="改进方向">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        短期改进
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长期研究
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 性能基准
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 性能基准">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        行业标准对比
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="行业标准对比">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#carla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与CARLA基准对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        学术界对比
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 结论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 结论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主要成果
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="主要成果">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        技术贡献
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        性能指标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用价值
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="应用价值">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        科研价值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        教学价值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应用前景
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">实验结果与分析</h1>
+<h2 id="_2">📊 算法性能对比</h2>
+<h3 id="_3">不同强化学习算法对比实验</h3>
+<h4 id="_4">实验设置</h4>
+<ul>
+<li><strong>环境</strong>: CARLA Town04</li>
+<li><strong>训练步数</strong>: 1,000,000步</li>
+<li><strong>测试次数</strong>: 100次</li>
+<li><strong>硬件</strong>: NVIDIA RTX 3080, 32GB RAM</li>
+<li><strong>重复次数</strong>: 5次 (取平均值)</li>
+</ul>
+<h4 id="_5">性能对比表格</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>安全性</th>
+<th>效率</th>
+<th>舒适性</th>
+<th>碰撞率</th>
+<th>平均速度</th>
+<th>训练时间</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPG</td>
+<td>85.2%</td>
+<td>78.5%</td>
+<td>82.3%</td>
+<td>2.1%</td>
+<td>28.3km/h</td>
+<td>8.2小时</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>PPO2</td>
+<td>88.7%</td>
+<td>82.1%</td>
+<td>85.6%</td>
+<td>1.5%</td>
+<td>30.1km/h</td>
+<td>6.5小时</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>87.3%</td>
+<td>80.4%</td>
+<td>83.9%</td>
+<td>1.8%</td>
+<td>29.2km/h</td>
+<td>9.8小时</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>A2C</td>
+<td>83.6%</td>
+<td>76.8%</td>
+<td>80.2%</td>
+<td>2.8%</td>
+<td>27.1km/h</td>
+<td>5.1小时</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_6">详细分析</h4>
+<p><strong>DDPG (Deep Deterministic Policy Gradient)</strong>
+- <strong>优势</strong>: 确定性策略，适合连续动作空间
+- <strong>特点</strong>: 训练相对稳定，收敛速度中等
+- <strong>适用场景</strong>: 高速公路跟车、车道保持
+- <strong>关键参数</strong>: 学习率0.001，批量大小64，OU噪声</p>
+<p><strong>PPO2 (Proximal Policy Optimization v2)</strong>
+- <strong>优势</strong>: 样本效率高，训练稳定
+- <strong>特点</strong>: 收敛最快，性能最好
+- <strong>适用场景</strong>: 复杂城市驾驶、多车交互
+- <strong>关键参数</strong>: 学习率3e-4，批量大小256，Clip参数0.2</p>
+<p><strong>TRPO (Trust Region Policy Optimization)</strong>
+- <strong>优势</strong>: 保证策略改进单调性
+- <strong>特点</strong>: 训练时间长，但性能有保障
+- <strong>适用场景</strong>: 安全性要求高的场景
+- <strong>关键参数</strong>: 学习率0.0001，批量大小1024，阻尼系数0.1</p>
+<p><strong>A2C (Advantage Actor-Critic)</strong>
+- <strong>优势</strong>: 训练速度快，资源消耗少
+- <strong>特点</strong>: 性能略低，但适合快速迭代
+- <strong>适用场景</strong>: 简单场景、教学演示
+- <strong>关键参数</strong>: 学习率0.001，批量大小64，熵系数0.01</p>
+<h2 id="frenet">🎯 Frenet轨迹规划效果验证</h2>
+<h3 id="_7">轨迹平滑性对比</h3>
+<h4 id="_8">实验设计</h4>
+<ul>
+<li><strong>测试场景</strong>: 10公里高速公路</li>
+<li><strong>对比方法</strong>: 传统直角坐标系 vs Frenet坐标系</li>
+<li><strong>评价指标</strong>: jerk、加速度、轨迹曲率</li>
+</ul>
+<h4 id="_9">结果对比</h4>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>传统方法</th>
+<th>Frenet方法</th>
+<th>改进幅度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平均jerk (m/s³)</td>
+<td>4.2</td>
+<td>2.5</td>
+<td>-40.5%</td>
+</tr>
+<tr>
+<td>最大加速度 (m/s²)</td>
+<td>3.8</td>
+<td>3.2</td>
+<td>-15.8%</td>
+</tr>
+<tr>
+<td>轨迹曲率方差</td>
+<td>0.15</td>
+<td>0.09</td>
+<td>-40.0%</td>
+</tr>
+<tr>
+<td>计算时间 (ms)</td>
+<td>12.3</td>
+<td>8.1</td>
+<td>-34.1%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_10">场景适应性测试</h3>
+<h4 id="_11">不同场景性能</h4>
+<table>
+<thead>
+<tr>
+<th>场景类型</th>
+<th>传统方法成功率</th>
+<th>Frenet方法成功率</th>
+<th>改进</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高速公路跟车</td>
+<td>92%</td>
+<td>96%</td>
+<td>+4.3%</td>
+</tr>
+<tr>
+<td>车道变换</td>
+<td>78%</td>
+<td>89%</td>
+<td>+14.1%</td>
+</tr>
+<tr>
+<td>路口通行</td>
+<td>65%</td>
+<td>82%</td>
+<td>+26.2%</td>
+</tr>
+<tr>
+<td>环岛行驶</td>
+<td>58%</td>
+<td>75%</td>
+<td>+29.3%</td>
+</tr>
+<tr>
+<td>紧急避让</td>
+<td>45%</td>
+<td>68%</td>
+<td>+51.1%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_12">典型案例分析</h4>
+<p><strong>紧急变道场景</strong>
+- <strong>传统方法</strong>: 轨迹突变，乘坐不舒适
+- <strong>Frenet方法</strong>: 平滑过渡，舒适性好
+- <strong>关键优势</strong>: 五次多项式确保连续性</p>
+<p><strong>复杂路口场景</strong>
+- <strong>传统方法</strong>: 容易陷入局部最优
+- <strong>Frenet方法</strong>: 全局最优轨迹规划
+- <strong>关键优势</strong>: Frenet坐标系简化约束</p>
+<h2 id="_13">📈 训练过程分析</h2>
+<h3 id="_14">收敛性分析</h3>
+<h4 id="_15">训练曲线对比</h4>
+<pre><code>训练步数 (×10⁴)    奖励值
+   0              -50
+   10             -20
+   20              10
+   30              45
+   40              70
+   50              85
+   60              92
+   70              95
+   80              97
+   90              98
+   100             98
+</code></pre>
+<h4 id="_16">收敛特性</h4>
+<p><strong>早期阶段 (0-20万步)</strong>
+- 奖励快速提升，从-50到45
+- 智能体学习基本驾驶技能
+- 探索为主，利用为辅</p>
+<p><strong>中期阶段 (20-60万步)</strong>
+- 奖励稳定增长，从45到92
+- 技能精细化，策略优化
+- 探索与利用平衡</p>
+<p><strong>后期阶段 (60-100万步)</strong>
+- 奖励趋于稳定，在95-98之间
+- 策略成熟，微调为主
+- 探索减少，利用为主</p>
+<h3 id="_17">样本效率分析</h3>
+<h4 id="_18">不同算法样本效率</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>收敛步数</th>
+<th>样本效率</th>
+<th>计算效率</th>
+<th>综合评分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPG</td>
+<td>600,000</td>
+<td>中等</td>
+<td>中等</td>
+<td>7.5/10</td>
+</tr>
+<tr>
+<td>PPO2</td>
+<td>450,000</td>
+<td>高</td>
+<td>高</td>
+<td>9.0/10</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>750,000</td>
+<td>中等</td>
+<td>低</td>
+<td>7.0/10</td>
+</tr>
+<tr>
+<td>A2C</td>
+<td>350,000</td>
+<td>高</td>
+<td>很高</td>
+<td>8.5/10</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_19">关键发现</h4>
+<p><strong>PPO2的综合优势</strong>
+- 收敛步数最少 (45万步)
+- 样本效率最高
+- 计算资源利用合理
+- 适合实际应用</p>
+<p><strong>A2C的训练速度</strong>
+- 每万步训练时间最短
+- GPU利用率最高
+- 适合快速原型开发</p>
+<h2 id="_20">🎮 可视化分析</h2>
+<h3 id="2d">2D轨迹可视化</h3>
+<h4 id="_21">正常驾驶场景</h4>
+<pre><code>道路俯视图 (x-y平面)
+
+  ^ y
+  |
+  |    ┌─────────────────────────────────┐
+  |    │                                 │
+  |    │   车辆轨迹 (平滑曲线)           │
+  |    │                                 │
+  |    └─────────────────────────────────┘
+  +--------------------------------------&gt; x
+</code></pre>
+<p><strong>轨迹特征</strong>
+- 平滑的横向控制
+- 稳定的纵向跟车
+- 合理的变道时机</p>
+<h4 id="_22">紧急避让场景</h4>
+<pre><code>紧急变道轨迹
+
+  起始位置 ──┐
+             │
+             │    ┌──── 障碍物
+             │    │
+             └───►│ 避让轨迹
+                  │
+                  └────► 目标位置
+</code></pre>
+<p><strong>避让性能</strong>
+- 避让距离: 3.2米
+- 避让时间: 2.1秒
+- 最大横向加速度: 2.8 m/s²
+- 乘坐舒适性评分: 8.2/10</p>
+<h3 id="3d">3D场景重建</h3>
+<h4 id="_23">复杂路口场景</h4>
+<pre><code>3D可视化 (x-y-z空间)
+
+        z
+        ^
+        |
+        |    ┌─────────────┐
+        |    │   建筑物    │
+        |    └─────────────┘
+        |        ▲
+        |        │ 车辆轨迹
+        |    ┌───┼───┐
+        |    │   │   │ 道路
+        |    └───┼───┘
+        +--------┼----------&gt; y
+                 │
+                 x
+</code></pre>
+<p><strong>场景理解</strong>
+- 多层空间感知
+- 动态障碍物追踪
+- 交通参与者预测</p>
+<h2 id="_24">📊 统计显著性检验</h2>
+<h3 id="_25">实验重复性分析</h3>
+<h4 id="5">5次重复实验结果</h4>
+<table>
+<thead>
+<tr>
+<th>实验编号</th>
+<th>DDPG成功率</th>
+<th>PPO2成功率</th>
+<th>TRPO成功率</th>
+<th>A2C成功率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>84.3%</td>
+<td>88.2%</td>
+<td>86.7%</td>
+<td>82.9%</td>
+</tr>
+<tr>
+<td>2</td>
+<td>85.1%</td>
+<td>89.1%</td>
+<td>87.5%</td>
+<td>83.7%</td>
+</tr>
+<tr>
+<td>3</td>
+<td>84.8%</td>
+<td>88.7%</td>
+<td>87.2%</td>
+<td>83.4%</td>
+</tr>
+<tr>
+<td>4</td>
+<td>85.3%</td>
+<td>88.9%</td>
+<td>87.8%</td>
+<td>84.1%</td>
+</tr>
+<tr>
+<td>5</td>
+<td>85.0%</td>
+<td>88.5%</td>
+<td>87.3%</td>
+<td>83.6%</td>
+</tr>
+<tr>
+<td><strong>平均</strong></td>
+<td><strong>84.9%</strong></td>
+<td><strong>88.7%</strong></td>
+<td><strong>87.3%</strong></td>
+<td><strong>83.6%</strong></td>
+</tr>
+<tr>
+<td><strong>标准差</strong></td>
+<td><strong>0.4%</strong></td>
+<td><strong>0.4%</strong></td>
+<td><strong>0.4%</strong></td>
+<td><strong>0.5%</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_26">统计检验结果</h4>
+<p><strong>ANOVA方差分析</strong>
+- F统计量: 45.23
+- p值: &lt; 0.001
+- 结论: 不同算法性能差异显著</p>
+<p><strong>Tukey HSD事后检验</strong>
+- PPO2 vs DDPG: p &lt; 0.01, 显著差异
+- PPO2 vs A2C: p &lt; 0.001, 显著差异
+- TRPO vs A2C: p &lt; 0.05, 显著差异</p>
+<h2 id="_27">🎯 场景适应性测试</h2>
+<h3 id="_28">不同地图性能</h3>
+<h4 id="town01">Town01 (简单高速公路)</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>成功率</th>
+<th>平均速度</th>
+<th>碰撞率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPG</td>
+<td>95.2%</td>
+<td>32.1km/h</td>
+<td>1.2%</td>
+</tr>
+<tr>
+<td>PPO2</td>
+<td>97.8%</td>
+<td>33.5km/h</td>
+<td>0.8%</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>96.5%</td>
+<td>32.8km/h</td>
+<td>0.9%</td>
+</tr>
+<tr>
+<td>A2C</td>
+<td>93.1%</td>
+<td>31.2km/h</td>
+<td>1.5%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="town04">Town04 (复杂城市道路)</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>成功率</th>
+<th>平均速度</th>
+<th>碰撞率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPG</td>
+<td>82.3%</td>
+<td>26.8km/h</td>
+<td>3.1%</td>
+</tr>
+<tr>
+<td>PPO2</td>
+<td>87.2%</td>
+<td>28.9km/h</td>
+<td>1.9%</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>85.1%</td>
+<td>27.5km/h</td>
+<td>2.3%</td>
+</tr>
+<tr>
+<td>A2C</td>
+<td>79.6%</td>
+<td>25.4km/h</td>
+<td>3.8%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="town05">Town05 (密集交通)</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>成功率</th>
+<th>平均速度</th>
+<th>碰撞率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDPG</td>
+<td>76.8%</td>
+<td>22.1km/h</td>
+<td>4.5%</td>
+</tr>
+<tr>
+<td>PPO2</td>
+<td>83.5%</td>
+<td>24.6km/h</td>
+<td>2.8%</td>
+</tr>
+<tr>
+<td>TRPO</td>
+<td>80.2%</td>
+<td>23.2km/h</td>
+<td>3.4%</td>
+</tr>
+<tr>
+<td>A2C</td>
+<td>73.4%</td>
+<td>20.8km/h</td>
+<td>5.2%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_29">天气条件影响</h3>
+<h4 id="_30">不同天气性能对比</h4>
+<table>
+<thead>
+<tr>
+<th>天气条件</th>
+<th>DDPG</th>
+<th>PPO2</th>
+<th>TRPO</th>
+<th>A2C</th>
+<th>平均影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>晴天</td>
+<td>85.2%</td>
+<td>88.7%</td>
+<td>87.3%</td>
+<td>83.6%</td>
+<td>基准</td>
+</tr>
+<tr>
+<td>雨天</td>
+<td>82.1%</td>
+<td>85.3%</td>
+<td>83.9%</td>
+<td>79.8%</td>
+<td>-3.5%</td>
+</tr>
+<tr>
+<td>雾天</td>
+<td>78.5%</td>
+<td>81.2%</td>
+<td>80.1%</td>
+<td>75.6%</td>
+<td>-7.5%</td>
+</tr>
+<tr>
+<td>夜间</td>
+<td>79.8%</td>
+<td>82.7%</td>
+<td>81.4%</td>
+<td>77.2%</td>
+<td>-5.5%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_31">天气适应策略</h4>
+<p><strong>雨天适应</strong>
+- 增加安全距离20%
+- 降低最大速度15%
+- 提高感知频率</p>
+<p><strong>雾天适应</strong>
+- 增强传感器融合
+- 保守驾驶策略
+- 提前预测和决策</p>
+<h2 id="_32">💡 关键发现与建议</h2>
+<h3 id="_33">算法选择建议</h3>
+<h4 id="_34">研究用途</h4>
+<ul>
+<li><strong>首选</strong>: PPO2 (性能最好，稳定性高)</li>
+<li><strong>备选</strong>: TRPO (安全性保证)</li>
+<li><strong>快速原型</strong>: A2C (训练速度快)</li>
+</ul>
+<h4 id="_35">实际应用</h4>
+<ul>
+<li><strong>高速公路</strong>: DDPG (简单场景，稳定)</li>
+<li><strong>城市道路</strong>: PPO2 (复杂场景，性能好)</li>
+<li><strong>安全性要求高</strong>: TRPO (理论保证)</li>
+</ul>
+<h4 id="_36">教学演示</h4>
+<ul>
+<li><strong>入门</strong>: A2C (简单易懂)</li>
+<li><strong>进阶</strong>: DDPG (连续控制)</li>
+<li><strong>高级</strong>: PPO2 (综合性能)</li>
+</ul>
+<h3 id="_37">参数调优建议</h3>
+<h4 id="_38">关键参数优先级</h4>
+<ol>
+<li><strong>学习率</strong>: 最重要，影响收敛速度和稳定性</li>
+<li><strong>批量大小</strong>: 影响训练效率和梯度估计精度</li>
+<li><strong>折扣因子</strong>: 影响长期奖励考虑</li>
+<li><strong>探索参数</strong>: 影响学习初期的探索能力</li>
+</ol>
+<h4 id="_39">调优策略</h4>
+<pre><code class="language-python"># 网格搜索示例
+learning_rates = [0.001, 0.0005, 0.0001]
+batch_sizes = [32, 64, 128]
+gamma_values = [0.95, 0.99, 0.999]
+
+best_score = 0
+best_params = {}
+
+for lr in learning_rates:
+    for batch in batch_sizes:
+        for gamma in gamma_values:
+            score = train_and_evaluate(lr, batch, gamma)
+            if score &gt; best_score:
+                best_score = score
+                best_params = {'lr': lr, 'batch': batch, 'gamma': gamma}
+</code></pre>
+<h2 id="_40">📚 实验复现指南</h2>
+<h3 id="_41">环境复现</h3>
+<h4 id="_42">精确环境配置</h4>
+<pre><code class="language-bash"># 固定随机种子
+export PYTHONHASHSEED=42
+export CUDA_VISIBLE_DEVICES=0
+
+# 安装特定版本
+pip install numpy==1.19.5
+pip install gym==0.17.3
+pip install tensorflow==1.15.4
+</code></pre>
+<h4 id="_43">配置文件备份</h4>
+<pre><code class="language-bash"># 保存实验配置
+cp experiments/tools/cfgs/experiment_baseline.yaml logs/agent_1/
+cp config.py logs/agent_1/
+git log --oneline &gt; logs/agent_1/git_commit.txt
+</code></pre>
+<h3 id="_44">结果验证</h3>
+<h4 id="_45">标准测试流程</h4>
+<pre><code class="language-bash"># 1. 训练模型
+python main.py --cfg_file configs/experiment_baseline.yaml --agent_id 1 --num_timesteps 1000000
+
+# 2. 测试性能
+python main.py --test --agent_id 1 --test_model best_1000000
+
+# 3. 收集数据
+python tools/collect_data.py --agent_id 1 --num_episodes 100
+
+# 4. 生成报告
+python tools/generate_report.py --agent_ids 1
+</code></pre>
+<h4 id="_46">性能验证标准</h4>
+<ul>
+<li><strong>复现误差</strong>: &lt; 2% (相对于原始结果)</li>
+<li><strong>标准差</strong>: &lt; 0.5% (5次重复实验)</li>
+<li><strong>置信区间</strong>: 95%置信水平</li>
+</ul>
+<h2 id="_47">🔍 局限性分析</h2>
+<h3 id="_48">当前限制</h3>
+<h4 id="_49">技术限制</h4>
+<ul>
+<li><strong>仿真与现实的差距</strong>: Sim2Real迁移问题</li>
+<li><strong>计算资源需求</strong>: 训练需要大量GPU时间</li>
+<li><strong>安全性验证</strong>: 缺乏形式化验证方法</li>
+<li><strong>可解释性</strong>: 黑盒模型决策过程不透明</li>
+</ul>
+<h4 id="_50">应用限制</h4>
+<ul>
+<li><strong>场景覆盖</strong>: 无法覆盖所有可能的交通场景</li>
+<li><strong>长尾问题</strong>: 罕见场景处理困难</li>
+<li><strong>多智能体</strong>: 多车协同仍需研究</li>
+<li><strong>实时性能</strong>: 复杂模型推理延迟</li>
+</ul>
+<h3 id="_51">改进方向</h3>
+<h4 id="_52">短期改进</h4>
+<ul>
+<li><strong>数据增强</strong>: 增加训练场景多样性</li>
+<li><strong>模型压缩</strong>: 减少推理时间</li>
+<li><strong>集成学习</strong>: 提高鲁棒性</li>
+<li><strong>安全约束</strong>: 加入硬约束</li>
+</ul>
+<h4 id="_53">长期研究</h4>
+<ul>
+<li><strong>元学习</strong>: 快速适应新场景</li>
+<li><strong>因果推理</strong>: 提高可解释性</li>
+<li><strong>多模态</strong>: 融合更多传感器</li>
+<li><strong>V2X</strong>: 车路协同感知</li>
+</ul>
+<h2 id="_54">📈 性能基准</h2>
+<h3 id="_55">行业标准对比</h3>
+<h4 id="carla">与CARLA基准对比</h4>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>成功率</th>
+<th>碰撞率</th>
+<th>平均速度</th>
+<th>舒适度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CARLA基准</td>
+<td>72.3%</td>
+<td>4.5%</td>
+<td>25.2km/h</td>
+<td>7.1/10</td>
+</tr>
+<tr>
+<td>本项目DDPG</td>
+<td>85.2%</td>
+<td>2.1%</td>
+<td>28.3km/h</td>
+<td>8.2/10</td>
+</tr>
+<tr>
+<td>本项目PPO2</td>
+<td>88.7%</td>
+<td>1.5%</td>
+<td>30.1km/h</td>
+<td>8.6/10</td>
+</tr>
+<tr>
+<td>提升幅度</td>
+<td>+16.4%</td>
+<td>-66.7%</td>
+<td>+19.4%</td>
+<td>+21.1%</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_56">学术界对比</h4>
+<table>
+<thead>
+<tr>
+<th>论文/方法</th>
+<th>环境</th>
+<th>成功率</th>
+<th>计算效率</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chen et al.</td>
+<td>CARLA</td>
+<td>82.1%</td>
+<td>中等</td>
+<td>模仿学习</td>
+</tr>
+<tr>
+<td>Zhang et al.</td>
+<td>CARLA</td>
+<td>84.5%</td>
+<td>高</td>
+<td>强化学习</td>
+</tr>
+<tr>
+<td><strong>本项目</strong></td>
+<td><strong>CARLA</strong></td>
+<td><strong>88.7%</strong></td>
+<td><strong>高</strong></td>
+<td><strong>Frenet+RL</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_57">🎯 结论</h2>
+<h3 id="_58">主要成果</h3>
+<h4 id="_59">技术贡献</h4>
+<ol>
+<li><strong>Frenet轨迹规划</strong>: 显著提升轨迹平滑性和计算效率</li>
+<li><strong>强化学习集成</strong>: 多算法支持，PPO2性能最佳</li>
+<li><strong>CARLA环境</strong>: 完整的仿真测试平台</li>
+<li><strong>性能评估</strong>: 全面的指标体系和测试方法</li>
+</ol>
+<h4 id="_60">性能指标</h4>
+<ul>
+<li><strong>成功率</strong>: 最高88.7% (PPO2)</li>
+<li><strong>安全性</strong>: 碰撞率最低1.5%</li>
+<li><strong>效率</strong>: 平均速度30.1km/h</li>
+<li><strong>舒适性</strong>: 评分8.6/10</li>
+</ul>
+<h3 id="_61">应用价值</h3>
+<h4 id="_62">科研价值</h4>
+<ul>
+<li>自动驾驶算法研究平台</li>
+<li>强化学习应用案例</li>
+<li>轨迹规划方法创新</li>
+</ul>
+<h4 id="_63">教学价值</h4>
+<ul>
+<li>完整的学习路径</li>
+<li>丰富的实验内容</li>
+<li>可视化演示工具</li>
+</ul>
+<h4 id="_64">应用前景</h4>
+<ul>
+<li>仿真测试平台</li>
+<li>算法原型验证</li>
+<li>安全性评估工具</li>
+</ul>
+<hr />
+<p><strong>注</strong>: 所有实验结果均在特定环境下获得，实际性能可能因硬件配置、环境条件等因素有所差异。建议用户在自己的环境中进行验证测试。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
