@@ -982,7 +982,7 @@
   <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自动驾驶演示视频
+        自动驾驶运行截图
       
     </span>
   </a>
@@ -2161,7 +2161,7 @@
   <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       
-        自动驾驶演示视频
+        自动驾驶运行截图
       
     </span>
   </a>
@@ -3301,17 +3301,13 @@ for lr in learning_rates:
 - <strong>纵轴</strong>: 每回合的平均奖励值
 - <strong>趋势</strong>: 从初始的负奖励逐步提升到稳定的高奖励
 - <strong>收敛点</strong>: 大约在400,000步开始趋于稳定</p>
-<h4 id="_43">自动驾驶演示视频</h4>
-<p>以下视频展示了训练完成的智能体在CARLA环境中的实际驾驶表现：</p>
-<video width="640" height="480" controls>
-  <source src="images/屏幕录制 2026-04-08 171007.mp4" type="video/mp4">
-  您的浏览器不支持视频播放。请下载视频查看：[自动驾驶演示视频](images/屏幕录制 2026-04-08 171007.mp4)
-</video>
-
-<p><strong>视频内容说明</strong>:
-- <strong>时长</strong>: 约X分钟
+<h4 id="_43">自动驾驶运行截图</h4>
+<p>下图展示了训练完成的智能体在CARLA环境中的实际驾驶表现：</p>
+<p><img alt="自动驾驶运行截图" src="../images/3c5006bd0863d9e7068177a302b72707.png" /></p>
+<p><strong>图2: 自动驾驶系统在CARLA环境中的运行截图</strong></p>
+<p><strong>截图说明</strong>:
 - <strong>场景</strong>: 城市道路环境，包含多车交互
-- <strong>演示内容</strong>:
+- <strong>展示内容</strong>:
   - 智能体的自主驾驶决策过程
   - Frenet轨迹规划的实时效果
   - 复杂交通场景的处理能力
@@ -3321,6 +3317,11 @@ for lr in learning_rates:
 2. <strong>决策合理性</strong>: 变道、超车等操作的适当时机
 3. <strong>安全性</strong>: 与其他车辆的安全距离保持
 4. <strong>效率</strong>: 行驶速度和路线选择的合理性</p>
+<p><strong>技术亮点</strong>:
+- <strong>Frenet坐标系</strong>: 在道路中心线坐标系下的平滑轨迹
+- <strong>实时规划</strong>: 每100ms更新一次轨迹
+- <strong>安全保证</strong>: 碰撞检测和避让机制
+- <strong>多目标优化</strong>: 平衡安全、效率、舒适性</p>
 <h3 id="_44">性能量化分析</h3>
 <p>基于实验结果，我们得到以下关键性能指标：</p>
 <h4 id="_45">训练效果评估</h4>
